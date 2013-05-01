@@ -9,7 +9,7 @@ int main(void)
 	for(i=0;;i++)
 	{
 		gets(dictionary[i]);
-		if(dictionary[i]=="XXXXXX")
+		if(dictionary[i][1]==88)
 		{
 			i--;
 			break;
@@ -19,7 +19,7 @@ int main(void)
 	for(j=0;;j++)
 	{
 		gets(words[j]);
-		if(words[j]=="XXXXXX")
+		if(words[j][1]==88)
 		{
 			j--;
 			break;
@@ -32,41 +32,36 @@ int main(void)
 		for(h=0;h<=i;h++)
 		{
 			char comp[7]="";
-			char ref[7]="";
 			int judge=1;
 			for(m=0;m<7;m++)
 			{
 				comp[m]=dictionary[h][m];
-				ref[m]=1;
 			}
-			ref[--m]=0;
 
 			for(m=0;words[k][m]!=0;m++)
 			{
-				for(n=0;dictionary[h][n]!=0;m++)
+				for(n=0;comp[n]!=0;n++)
 				{
-					if(dictionary[h][n]==words[k][m])
+					if(comp[n]==words[k][m])
 					{
-						if(comp[n]!=2)
-							comp[n]=2;
-						else
-							continue;
+						comp[n]=1;
+						break;
 					}
 				}
 			}
 			for(p=0;comp[p]!=0;p++)
 			{
-				if(comp[p]==1)
+				if(comp[p]!=1)
 					judge=0;
 			}
 			if(judge==1)
 			{
-				printf("%s",dictionary[h]);
+				printf("%s\n",dictionary[h]);
 				isAWord=1;
 			}
 		}
 		if(isAWord==0)
-			printf("NOT A VALID WORD");
-		printf("******");
+			printf("NOT A VALID WORD\n");
+		printf("******\n");
 	}
 }
