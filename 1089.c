@@ -44,15 +44,11 @@ int main(void)
 				{
 					if(comp[n]==words[k][m])
 					{
-						if(comp[n]!=0)
-						{
-							comp[n]=1;
-							break;
-						}
-						else
-							judge=0
+						comp[n]=1;
+						break;
 					}
 				}
+				judge=0;
 			}
 			if(judge==1)
 			{
