@@ -44,16 +44,25 @@ int main(void)
 				{
 					if(comp[n]==words[k][m])
 					{
-						comp[n]=1;
-						break;
+						if(comp[n]!=0)
+						{
+							comp[n]=1;
+							break;
+						}
+						else
+							judge=0
 					}
 				}
 			}
-			for(p=0;comp[p]!=0;p++)
+			if(judge==1)
 			{
-				if(comp[p]!=1)
-					judge=0;
+				for(p=0;comp[p]!=0;p++)
+				{
+					if(comp[p]!=1)
+						judge=0;
+				}
 			}
+			
 			if(judge==1)
 			{
 				printf("%s\n",dictionary[h]);
