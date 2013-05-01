@@ -1,5 +1,5 @@
 #include <stdio.h>
-int digit(int n);
+int digit(char num[100]);
 
 int main(void)
 {
@@ -8,7 +8,7 @@ int main(void)
 	while(gets(num))
 	{
 
-        if(num[0]=="0")
+        if(num[0]==48)
             return 0;
         else
         {
