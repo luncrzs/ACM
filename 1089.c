@@ -39,16 +39,19 @@ int main(void)
 			}
 
 			for(m=0;words[k][m]!=0;m++)
-			{
+			{ 
+				int found=0;
 				for(n=0;comp[n]!=0;n++)
 				{
 					if(comp[n]==words[k][m])
 					{
 						comp[n]=1;
+						found=1;
 						break;
 					}
 				}
-				judge=0;
+				if(found==0)
+					judge=0;
 			}
 			if(judge==1)
 			{
