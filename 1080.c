@@ -34,7 +34,7 @@ int digit(char num[100])
             n=n/10;
         }
         n=dig;
-    }while(dig>=10)
+    }while(dig>=10);
     	
 	return dig;
 }
