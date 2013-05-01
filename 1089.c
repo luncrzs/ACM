@@ -1,10 +1,11 @@
 #include <stdio.h>
+char** trim(char candidate[100][7],int c);
 
 int main(void)
 {
 	char dictionary[100][7]={""};
 	char words[100][7]={""};
-	int i,j,k,h,m,n,p;
+	int i,j,k,h,m,n,p,c;
 
 	for(i=0;;i++)
 	{
@@ -28,7 +29,8 @@ int main(void)
 
 	for(k=0;k<=j;k++)
 	{
-		int isAWord=0;
+		int isAWord=0,c=0;
+		char candidate[100][7]={""};
 		for(h=0;h<=i;h++)
 		{
 			char comp[7]="";
@@ -64,12 +66,25 @@ int main(void)
 			
 			if(judge==1)
 			{
-				printf("%s\n",dictionary[h]);
+				candidate[c++]=dictionary[h];
 				isAWord=1;
 			}
 		}
 		if(isAWord==0)
 			printf("NOT A VALID WORD\n");
+		else
+		{
+			trim(candidate,c);
+			for(m=0;m<c;m++)
+			{
+				printf("%s\n",candidate[m]);
+			}
+		}
 		printf("******\n");
 	}
+}
+
+int trim(char candidate[100][7],int c)
+{
+
 }
