@@ -22,7 +22,7 @@ int main(void)
 int digit(char num[100])
 {
 	int i,dig=0,n=0;
-    for(i=0;num[i]!="\0";i++)
+    for(i=0;num[i]!=0;i++)
     {
         n=n+num[i]-48;
     }
