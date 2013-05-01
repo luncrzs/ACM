@@ -1,10 +1,10 @@
 #include <stdio.h>
-int digit(char num[100]);
+int digit(char num[10000]);
 
 int main(void)
 {
 	int a;
-    char num[100];
+    char num[10000];
 	while(gets(num))
 	{
 
@@ -19,7 +19,7 @@ int main(void)
 	return 0;
 }
 
-int digit(char num[100])
+int digit(char num[10000])
 {
 	int i,dig=0,n=0;
     for(i=0;num[i]!=0;i++)
