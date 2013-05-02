@@ -1,5 +1,5 @@
 #include <stdio.h>
-char** trim(char candidate[100][7],int c);
+int trim(char* candidate[100],char dictionary[100][7]);
 
 int main(void)
 {
@@ -30,7 +30,7 @@ int main(void)
 	for(k=0;k<=j;k++)
 	{
 		int isAWord=0,c=0;
-		char candidate[100][7]={""};
+		char* candidate[100]={NULL};
 		for(h=0;h<=i;h++)
 		{
 			char comp[7]="";
@@ -74,7 +74,7 @@ int main(void)
 			printf("NOT A VALID WORD\n");
 		else
 		{
-			trim(candidate,c);
+			trim(candidate,dictionary);
 			for(m=0;m<c;m++)
 			{
 				printf("%s\n",candidate[m]);
@@ -82,9 +82,34 @@ int main(void)
 		}
 		printf("******\n");
 	}
+	return 0;
 }
 
-int trim(char candidate[100][7],int c)
+int trim(char* candidate[100],char dictionary[100][7])
 {
+	char* temp;
+	int i,j,k;
+	
+	for(i=0;candidate[i]!=NULL;i++)
+	{
+		for(j=i+1;candidate[j]!=NULL;j++)
+		{
+			for(k=0;k<7;k++)
+			{
+				if(candidate[j][k]==candidate[i][k])
+					continue;
+				else if(candidate[j][k]<candidate[i][k])
+				{
+					temp=candidate[i];
+					candidate[i]=candidate[j];
+					candidate[j]=temp;
+					break;
+				}
+				else
+					break;
+			}
+		}
+	}
 
+	return 0;
 }
